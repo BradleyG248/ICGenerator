@@ -33,4 +33,7 @@ export class MakepollComponent implements OnInit {
     this._ms.editPollTitle(e.target.value);
     this.title = e.target.value;
   }
+  createForm() {
+
+  }
 }
