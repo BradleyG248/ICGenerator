@@ -1,0 +1,36 @@
+<div class="ash-bg" id="content-parent">
+  <div class="container pt-5 pb-5">
+    <div class="row">
+      <div class="col-12">
+        <h1>Create Poll</h1>
+      </div>
+      <div class="col-6">
+        <form action="">
+          <h4>Name</h4>
+          <input value="Poll Title" (input)="titleInput($event)" type="text">
+          <h4>Questions</h4>
+          <hr>
+          <div id="questions">
+            <question index="{{i}}" *ngFor="let question of questions; index as i"></question>
+          </div>
+        </form>
+        <button (click)="addQuestion()" class="btn btn-primary">Add Question</button>
+      </div>
+      <div class="col-6 poll-preview">
+        <div class="poll-title">
+          <h2>{{title}}</h2>
+        </div>
+        <div class="poll-questions">
+          <div *ngFor="let question of questions; index as qi">
+            <h4>{{question.name}}</h4>
+            <div class="d-flex justify-content-start align-items-center" *ngFor="let option of question.options; index as i">
+              <input type="{{question.type}}" name="question{{+qi+1}}" id="question{{+qi+1}}option{{+i+1}}">
+              <label for="question{{+qi+1}}option{{+i+1}}" class="mx-2 mb-0">{{option.name}}</label>
+            </div>
+            <hr *ngIf="(+qi+1)<questions.length">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

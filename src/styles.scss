@@ -1,1 +1,100 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*Variables*/
+$text1:#222222;
+$color1:#006888;
+$color2:#ec360c;
+$boxShadow1:10px 10px 30px rgba(0,0,0,0.5);
+$smallPad1:2em;
+$borderRadius1:1em;
+
+/*Style*/
+
+/*Global Styles*/
+h1, h2, h3, h4, h5, h6, p, li{
+  color:$text1;
+}
+
+
+/*Nav Style*/
+.navbar{
+  list-style:none;
+  justify-content: flex-end;
+  li{
+    a{
+      color:$text1;
+      text-decoration: none;
+      padding:0 1em;
+      font-size:1.2em;
+      font-weight:500;
+    }
+  }
+}
+/*General Styling*/
+
+/*Card Styling*/
+.poll-card{
+  background-color:$color1;
+  box-shadow:$boxShadow1;
+  padding:$smallPad1;
+  border-radius:$borderRadius1;
+}
+/*Form Styling*/
+form{
+  input[type="text"]{
+    border:1px solid #222222;
+    border-radius:4px;
+    outline:none;
+    width:100%;
+  }
+  .radio-group{
+    padding:0.5em 0;
+    label{
+      padding-left:0.5em;
+    }
+  }
+  .btn-delete{
+    color:$color2;
+    border:none;
+    background:none;
+  }
+  .question-details{
+    input{
+      margin:10px 0;
+    }
+  }
+}
+.poll-preview{
+  .poll-title{
+    background-color:$color1;
+    padding:1em;
+    border-top-right-radius: $borderRadius1;
+    border-top-left-radius: $borderRadius1;
+    border:1px solid $color1;
+    h2{
+      margin:0;
+    }
+  }
+  .poll-questions{
+    border:1px solid $color1;
+    padding:1em;
+  }
+}
+/*Variable styling*/
+
+$colours:
+  "ash" #eeeeee,
+  "red" #ec360c,
+  "blue" #006888;
+
+@each $i in $colours{
+	.#{nth($i, 1)}-bg {
+		background: nth($i, 2);
+	}
+	.#{nth($i, 1)}-text {
+		color:nth($i, 2);
+  }
+  .#{nth($i, 1)}-border {
+    border-color:nth($i, 2);
+  }
+}

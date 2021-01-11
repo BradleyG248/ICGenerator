@@ -1,0 +1,14 @@
+<div class="dashboard ash-bg" id="content-parent">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>I'm a title!</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum enim nesciunt dignissimos perferendis pariatur cumque quibusdam consequatur minus, sint magnam possimus modi incidunt nisi. Amet debitis blanditiis velit doloremque magni. Suscipit molestiae dignissimos nostrum maxime magni praesentium, commodi repellendus reiciendis reprehenderit delectus temporibus assumenda aliquid harum sunt. Blanditiis temporibus reiciendis quasi? Ratione perspiciatis architecto tempora. Corrupti excepturi consequuntur expedita magnam. Tempora commodi architecto corporis incidunt quia, voluptatem libero repellat excepturi sequi consequuntur soluta nesciunt? Totam dolorum odit ut hic velit ratione, fugit nam neque repellat est omnis delectus eius nisi!</p>
+        <h2 class="text-center mb-5">My Polls</h2>
+      </div>
+      <div *ngFor="let poll of polls; index as i" class="col-md-4">
+        <poll-card [poll]="poll"></poll-card>
+      </div>
+    </div>
+  </div>
+</div>

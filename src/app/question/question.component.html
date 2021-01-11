@@ -1,0 +1,15 @@
+<div class="question">
+  <div class="d-flex flex-row justify-content-between">
+    <input (input)="nameInput($event)" id="question{{index}}title" type="text" placeholder="Question {{order}}">
+    <button type="button" (click)="deleteQuestion(index)" class="btn-delete"><i class="fas fa-trash"></i></button>
+  </div>
+  <div class="radio-group">
+    <input checked (input)="typeInput($event)" type="radio" name="QuestionType{{index}}" value="radio" id="Radio{{index}}"><label for="Radio{{index}}">Single-Choice</label>
+    <br>
+    <input (input)="typeInput($event)" type="radio" name="QuestionType{{index}}" value="checkbox" id="Checkbox{{index}}"><label for="Checkbox{{index}}">Multi-Choice</label>
+  </div>
+  <div class="question-details" id="question-details">
+    <question-option questionIndex="{{index}}" index="{{i}}" *ngFor="let option of options; index as i"></question-option>
+    <button (click)="addOption($event)" class="btn btn-primary">+</button>
+  </div>
+</div>
