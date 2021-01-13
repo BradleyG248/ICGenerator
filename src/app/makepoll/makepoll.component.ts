@@ -34,6 +34,6 @@ export class MakepollComponent implements OnInit {
     this.title = e.target.value;
   }
   createForm() {
-
+    this._ms.createForm();
   }
 }

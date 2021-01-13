@@ -1,4 +1,14 @@
 import { Injectable } from '@angular/core';
+import Axios from "axios";
+let url = "https://localhost:5001";
+let api = Axios.create({
+  baseURL: url + "/api",
+  timeout: 3000,
+  headers: {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "*"
+  }
+})
 
 @Injectable({
   providedIn: 'root'
@@ -54,5 +64,22 @@ export class MakepollService {
   }
   setType(type: string, question: number) {
     this.questions[question].type = type;
+  }
+  async createForm() {
+    let res = await api.post("polls", { Name: this.title });
+    console.log(res.data);
+    this.questions.forEach(question => {
+      this.createQuestion(question, res.data.id);
+    })
+  }
+  async createQuestion(question: Object | any, pollId: number) {
+    let res = await api.post("questions", { Name: question.name, Type: question.type, PollId: pollId });
+    let options: Array<Object | any> = question.options;
+    options.forEach(option => {
+      this.createOption(option, res.data.id);
+    })
+  }
+  async createOption(option: Object | any, questionId: number) {
+    let res = await api.post("options", { Name: option.name, QuestionId: questionId });
   }
 }
